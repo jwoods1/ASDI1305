@@ -13,34 +13,213 @@
     
         <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
         <link rel="stylesheet" type="text/css" href="css/main.css" />
+        <script src="js/libs/modernizr.custom.min.js"></script>
         <title>Moto Tracker</title>
     </head>
     <body>
       <section data-role="page" id="main-page">
-        <header data-role="header" data-theme="b">
-            <h1>Moto Tracker</h1>
-            <a href="#main-page" data-icon="bars"></a>
+        <header data-role="header" style="overflow:hidden;" data-theme="b">
+            <h1>MotoTracker</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#results">Results</a></li>
+                    <li><a href="#picks">Picks</a></li>
+                </ul>
+            </div>
         </header>
-        <nav data-role="navbar" data-theme="b">
-            <ul>
-                <li><a href="#results">Results</a></li>
-                <li><a href="#series">Series</a></li>
-                <li><a href="#riders">Riders</a></li>
-            </ul>
-        </nav>
-        <section data-role="content" data-theme="b">
-            <article>
+        <section data-role="content" data-theme="a">
+            <article data-role="content">
                 <header>
                     <h2>Welcome to Moto Tracker<h2>
                 </header>
+                <img src="img/placeholder.jpg">
                 <p>We have all your racing Tracking Needs</p>
-                <footer data-role="footer" data-theme="b">
-                    <a href="#results" data-theme="b">Current race</a>
+                <a href="#results" data-role="button" data-theme="b">Current race</a>
+              </article>  
+                <footer data-theme="b">
+                    <input type="search" name="search" value="" placeholder="Search Riders" data-theme="b">
                 </footer>
+        </section>      
+      </section><!---End of Main Page-->
+      <section data-role="page" id="picks" data-theme="a">
+        <header data-role="header" style="overflow:hidden;" data-theme="b">
+            <h1>MotoTracker</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#results">Results</a></li>
+                    <li><a href="#main-page">Main</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content" data-theme="a">
+            <!---Form-->
+            <div data-role="fieldcontain">
+                    <label for="first">1st:</label>
+                    <select name="first" id="first" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">1ST place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="second">2nd:</label>
+                    <select name="second" id="second" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">2nd place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="thrird">3rd:</label>
+                    <select name="thrird" id="thrird" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">3rd place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="fourth">4th:</label>
+                    <select name="fourth" id="fourth" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">4th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="fifth">5th:</label>
+                    <select name="fifth" id="fifth" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">5th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="sixth">6th:</label>
+                    <select name="sixth" id="sixth" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">6th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="seventh">7th:</label>
+                    <select name="seventh" id="seventh" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">7th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="eighth">8th:</label>
+                    <select name="eighth" id="eighth" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">8th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="nineth">9th:</label>
+                    <select name="nineth" id="nineth" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">9th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                    <label for="tenth">10th:</label>
+                    <select name="tenth" id="tenth" class="required" data-native-menu="false" data-theme="b">
+                        <option data-placeholder="true">10th place</option>
+                        <option value="villopoto">Villopoto</option>
+                        <option value="reed">Reed</option>
+                        <option value="dungey">Dungey</option>
+                        <option value="stewart">Stewart</option>
+                        <option value="barcia">Barcia</option>
+                        <option value="millsaps">Millsaps</option>
+                        <option value="tickle">Tickle</option>
+                        <option value="canard">Canard</option>
+                        <option value="short">Short</option>
+                        <option value="weimer">Weimer</option>
+                    </select>
+                </div>
+                 <input type="submit" id="submitpick" value="Make Picks" data-icon="grid" data-iconpos="right" data-theme="b">
+        </section>
 
 
+      </section><!--Ened of Picks-->
+      <section data-role="page" id="results" data-theme="a">
+        <header data-role="header" style="overflow:hidden;" data-theme="b">
+            <h1>MotoTracker</h1>
+            <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#main-page">Main</a></li>
+                    <li><a href="#picks">Picks</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content" data-theme="b"
 
+        <footer data-theme="b">
+                    <input type="search" name="search" value="" placeholder="Search Riders" data-theme="b">
+                </footer>
       </section>
+
 
 
 
@@ -49,6 +228,7 @@
 
         <script src="js/libs/jquery-1.9.1.min.js"></script>
         <script src="js/libs/jquery.mobile-1.3.1.min.js"></script>
+        <script src="js/libs/jquery.validate.min.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

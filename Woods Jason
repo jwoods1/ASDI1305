@@ -1,0 +1,31 @@
+Woods Jason
+ASDI 1305
+Project story
+
+The MotoTracker app
+	The idea behind this app is to create a easy way to track SuperCross and MotoCross riders and results.
+	The idea came from a fantasy style motosports game with my friends.
+
+(Main Page)
+	When app loads user will see the main page.
+		The header will have a 16x16 logo on the left side and the title in the middle,
+		and a icon for a drop-down menu on the right.
+		The drop-down menu will have links to the display page as well as overall results of the races.
+			The main content on this page will have a image/ CTA in the middle with a create picks button under the image.
+		The footer will have a search bar that will allow you to search Picks/Riders.
+
+(Create picks page)
+	The page will have same header and nav menu as main page.
+		The content on page will have a text box on top to create / save user name.
+		Then it will have 2 radio buttons to select series that you are picking for.
+		Then it will have drop down selections which the user will pick there riders for that race.
+		At the bottom will have a submit button. 
+		then the view selection page will display.
+
+(Display Page)		
+	This page will load the created picks from local storage in to the view page.
+		The same nav menu and header bar is used here as well.
+		This page will have a image of the series they selected and list all the selected riders for the race.
+		This page will also have a edit button to go back to the create page and load inputed info from local storage, and allow the users to edit there selected picks.
+		This page will also have a delete button. This will clear the selected race from local storage. 
+		The footer will have a search bar with the capability of searching the local storage for riders / races.
