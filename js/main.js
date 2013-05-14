@@ -1,13 +1,13 @@
 
 $("#clearLocal").on("click", function(){
 	if(localStorage.length === 0){
-			alert("There is no data to clear.")
-			location.reload();
+			alert("There is no data to clear.");
+			$.mobile.changePage($("#main-page"));
 
 	}else{
 		localStorage.clear();
-		alert("All Picks are Deleted")
-		location.reload();
+		alert("All Picks are Deleted");
+		$.mobile.changePage($("#main-page"));
 	}
 });
 $("#results").on("click", function(){
@@ -34,14 +34,15 @@ $("#submitpick").on("click",function(){
 
 		localStorage.setItem(id, JSON.stringify(item));
 		alert("Picks Saved");
-		load("#main-page");
+		$.mobile.changePage($("#main-page"));
+	
 })
 
-$("#results").on("click","results")
-		var results= function(){
+$("#results").on("pagebeforeshow",function(e){
 		if(localStorage.length === 0){
 			alert("there is no data in Local Storage so JSON data was loaded.");
-			defaultData();
+		
+		}
 		/*		var makeDiv = document.createElement("div");
 		makeDiv.setAttribute("id", "items");
 		var makeList = document.createElement("ul");
@@ -70,6 +71,9 @@ $("#results").on("click","results")
 			makeItemLink(key, linkLi);//create our edit and delete buttons. for each item in local storage.
 		}*/
 
-	}
-}
+
+});
+		
+	
+
 
