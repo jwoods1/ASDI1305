@@ -23,7 +23,7 @@
             <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#results">Results</a></li>
+                    <li id="pResults"><a href="#results">Results</a></li>
                     <li><a href="#picks">Picks</a></li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@
             <a href="#" data-icon="gear" class="ui-btn-right">Options</a>
             <div data-role="navbar">
                 <ul>
-                    <li><a href="#results">Results</a></li>
+                    <li id="pResults"><a href="#results">Results</a></li>
                     <li><a href="#main-page">Main</a></li>
                 </ul>
             </div>
@@ -213,8 +213,9 @@
                 </ul>
             </div>
         </header>
-        <section data-role="content" data-theme="b"
-
+        <section data-role="content" data-theme="b">
+        <input type="button" id="clearLocal" value="Clear Picks" data-icon="delete" data-iconpos="right" data-theme="b" data-mini="true" data-inline="true">
+    </section>
         <footer data-theme="b">
                     <input type="search" name="search" value="" placeholder="Search Riders" data-theme="b">
                 </footer>
