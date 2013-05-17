@@ -25,13 +25,13 @@ $("#results").on("click", function(){
 
 $("#submitpick").on("click",function(key){
 	if (!key){
-		
+		picks = Math.floor(Math.random()*100000001);
 		
 		}else{
 			picks = key;
 		}
 
-			$.storage.setItem( Math.floor(Math.random()*100000001), 
+			$.storage.setItem( picks, 
 			["1st:", $("#first").val(),
 			"2nd:", $("#second").val(),
 			"3rd:", $("#third").val(),
@@ -55,40 +55,40 @@ $("#submitpick").on("click",function(key){
 	}
 })*/
 
-$("#results").on("pagebeforeshow",function(){
-		if($.storage.length('localStorage') === 0){ 
-			alert("Nothing to Dispaly.");
-			
-		}else{
-			$("#dResult")
-				.append("<ul></ul>")
-				.attr("id","thePicks")
-				.addClass("block");
-			
+$("#results").on("pageinit",function(){
+
 		
+			$.ajax({
+			url: "remote.json",
+			type: "GET",
+			dataType: "json",
+			success: function(response){
+
+				for(var i=0, j=reponse.Picks.length; i<j; i++){
+					var pick = reponse.Picks[i];
+					
+					$(''+
+						'<ul id="thePicks" class="block">'+
+						'<li>'+ pick.first + '</li>' +
+						'<li>'+ pick.second + '</li>' +
+						'<li>'+ pick.third+ '</li>' +
+						'<li>'+ pick.forth + '</li>' +
+						'<li>'+ pick.fifth + '</li>' +
+						'<li>'+ pick.sixth + '</li>' +
+						'<li>'+ pick.seventh + '</li>' +
+						'<li>'+ pick.eighth + '</li>' +
+						'<li>'+ pick.nineth +'</li>' +
+						'<li>'+ pick.tenth + '</li>' +
+						'</ul>').appendTo("#dResult");
+				}
+			}
 			
 				
-			for(var i=0, j=$.storage.length('localStorage'); i<j; i++){
-					var key   = localStorage.key(i);
-					var value = $.storage.getItem(key,'localStorage');
-					var json  = $.parseHTML(value);
-					$('<li></li>').appendTo("#thePicks ul").attr("id","bets");
-					$("#thePicks li").text(value);
-					
-					
-
-					$("<input type='button' id='editpicks' value='Edit Picks'   data-theme='b' data-mini='true' data-inline='true'>")
-						.appendTo("#thePicks ul");
-					
-
-					console.log(value);
-				
-					
-				}	
+			
 						
 			
 				
-		}
+		})
 	});	
 		/*.on("click",function(){
 						$.mobile.changePage($("#picks"));
@@ -110,7 +110,14 @@ $("#results").on("pagebeforeshow",function(){
 		
 	
 	
-			
+			/*$.ajax({
+				url: "something",
+				type: "GET",
+				dataType: 'json',
+				success: function(response){
+					console.log();
+				}
+			})*/
 		
 	
 
