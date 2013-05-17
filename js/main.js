@@ -1,6 +1,12 @@
+//Jason Woods
+// ASDI 1305
+// main.js
+
+$(function(){
 
 $("#clearLocal").on("click", function(){
-	if(localStorage.length === 0){
+	
+	if($.storage.length('localStorage') === 0){ 
 			alert("There is no data to clear.");
 			$.mobile.changePage($("#main-page"));
 
@@ -17,63 +23,99 @@ $("#results").on("click", function(){
 
 
 
-$("#submitpick").on("click",function(){
-	var id = Math.floor(Math.random()*100000001);
-	var item 			= {};
-			item.pick1	= ["Picks:", $("#first").val()];
-			item.pick2	= ["Picks:", $("#second").val()];
-			item.pick3	= ["Picks:", $("#third").val()];
-			item.pick4	= ["Picks:", $("#fourth").val()];
-			item.pick5	= ["Picks:", $("#fifth").val()];
-			item.pick6	= ["Picks:", $("#sixth").val()];
-			item.pick7	= ["Picks:", $("#seventh").val()];
-			item.pick8	= ["Picks:", $("#eighth").val()];
-			item.pick9	= ["Picks:", $("#nineth").val()];
-			item.pick10	= ["Picks:", $("#tenth").val()];
-			
-
-		localStorage.setItem(id, JSON.stringify(item));
-		alert("Picks Saved");
-		$.mobile.changePage($("#main-page"));
-	
-})
-
-$("#results").on("pagebeforeshow",function(e){
-		if(localStorage.length === 0){
-			alert("there is no data in Local Storage so JSON data was loaded.");
+$("#submitpick").on("click",function(key){
+	if (!key){
 		
+		
+		}else{
+			picks = key;
 		}
-		/*		var makeDiv = document.createElement("div");
-		makeDiv.setAttribute("id", "items");
-		var makeList = document.createElement("ul");
-		makeDiv.appendChild(makeList);
-		document.body.appendChild(makeDiv);
-		cV("items").style.display = "block";
-		for(var i=0, j=localStorage.length; i<j; i++) {
-			var makeli = document.createElement("li");
-			var linkLi = document.createElement("li");
-			linkLi.setAttribute("id","links");
-			makeList.appendChild(makeli);
-			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
-			//convert the string from local storage value back to an Object by using JSON.parse()
-			var lObj = JSON.parse(value);
-			var createSubList = document.createElement("ul");
-			makeli.appendChild(createSubList);
-			getClientImg(lObj.company[1], createSubList);
-			for(var n in lObj){
-				var createSubli = document.createElement("li");
-				createSubList.appendChild(createSubli);
-				var optSubText = lObj[n][0]+" "+lObj[n][1];
-				createSubli.innerHTML = optSubText;
-				createSubList.appendChild(linkLi);
-			}
-			makeItemLink(key, linkLi);//create our edit and delete buttons. for each item in local storage.
-		}*/
 
+			$.storage.setItem( Math.floor(Math.random()*100000001), 
+			["1st:", $("#first").val(),
+			"2nd:", $("#second").val(),
+			"3rd:", $("#third").val(),
+			"4th:", $("#fourth").val(),
+			"5th:", $("#fifth").val(),
+			"6th:", $("#sixth").val(),
+			"7th:", $("#seventh").val(),
+			"8th:", $("#eighth").val(),
+			"9th:", $("#nineth").val(),
+			"10th:", $("#tenth").val()], 'localStorage' );
+	
+		alert("Picks Saved");
+
+		$.mobile.changePage($("#main-page"));
+		 
+});
+/*var defaultData = $(function(){
+	for(var i in jsonD){
+		var id = Math.floor(Math,random()*1000000001);
+		localStorage.setItem(id, JSON.stringify(jsonD[i]));
+	}
+})*/
+
+$("#results").on("pagebeforeshow",function(){
+		if($.storage.length('localStorage') === 0){ 
+			alert("Nothing to Dispaly.");
+			
+		}else{
+			$("#dResult")
+				.append("<ul></ul>")
+				.attr("id","thePicks")
+				.addClass("block");
+			
+		
+			
+				
+			for(var i=0, j=$.storage.length('localStorage'); i<j; i++){
+					var key   = localStorage.key(i);
+					var value = $.storage.getItem(key,'localStorage');
+					var json  = $.parseHTML(value);
+					$('<li></li>').appendTo("#thePicks ul").attr("id","bets");
+					$("#thePicks li").text(value);
+					
+					
+
+					$("<input type='button' id='editpicks' value='Edit Picks'   data-theme='b' data-mini='true' data-inline='true'>")
+						.appendTo("#thePicks ul");
+					
+
+					console.log(value);
+				
+					
+				}	
+						
+			
+				
+		}
+	});	
+		/*.on("click",function(){
+						$.mobile.changePage($("#picks"));
+						var iValue = localStorage.getItem(this.key);
+						var item = $.parseJSON(iValue);
+						$("#first").val()  = item.pick1[1];
+						$("#second").val() = item.pick2[1];
+						$("#third").val()  = item.pick3[1];
+						$("#fourth").val() = item.pick4[1];
+						$("#fifth").val()  = item.pick5[1];
+						$("#sixth").val(]  = item.pick6[1];
+						$("#seventh").val()= item.pick7[1];
+						$("#eighth").val() = item.pick8[1];
+						$("#nineth").val() = item.pick9[1];
+						$("#tenth").val()  = item.pick10[1];
+			}
+			makeItemLink(key, linkLi);//create our edit and delete buttons. for each item in local storage.*/
+
+		
+	
+	
+			
+		
+	
 
 });
 		
-	
+
 
 
