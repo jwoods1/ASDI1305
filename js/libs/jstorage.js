@@ -46,6 +46,8 @@
 
 (function($) {
 	$.storage = function() {
+		var id 			= Math.floor(Math.random()*100000001);
+		$.jStorage.set('id');
 
 		// private vars
 		// set the storage status. decide which types are available and set appropriate fallbacks
@@ -224,7 +226,7 @@
 					// if(!jQuery.jCookie) {
 					// window.setTimeout( function () { jQuery.storage.setItem(sKey_,sValue_,oOptions_)} , 100 );
 					// } else {
-					sKey_ = ['jStorage_',sKey_].join('');
+					sKey_ =  Math.floor(Math.random()*100000001);
 					if (sValue_ === null) {
 						jQuery.jCookie(sKey_, null);
 						return true;
