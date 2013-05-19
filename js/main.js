@@ -82,8 +82,18 @@ $('#results').on("pageinit",function(e){
 			var value = localStorage.getItem(key);
 			var lsO = $.parseJSON(value);
 
-			$("<ul>Race Results</ul>").appendTo($("#dResult"));
-			$("<li>"value"</li>").appendTo("#dResult ul:last");
+			$("<ol>Race Results</ol>").appendTo($("#dResult"));
+			$("<li data-inline='true'>"+lsO.first[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.second[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.third[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.fourth[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.fifth[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.sixth[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.seventh[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.eighth[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.nineth[1] +"</li>").appendTo("#dResult ol:last");
+			$("<li data-inline='true'>"+lsO.tenth[1] +"</li>").appendTo("#dResult ol:last");
+			
 		}
 				console.log(lsO);
 	});
