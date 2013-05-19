@@ -74,8 +74,18 @@ $('#results').on("pageinit",function(e){
 	// Display button
 	$("#displayData").on("click",function(){
 		
+		if(localStorage.length === 0){
+			alert("No Picks to display.");
+		}
+		for(var i=0, j=localStorage.length; i<j; i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var lsO = $.parseJSON(value);
 
-				
+			$("<ul>Race Results</ul>").appendTo($("#dResult"));
+			$("<li>"value"</li>").appendTo("#dResult ul:last");
+		}
+				console.log(lsO);
 	});
 });
 		
