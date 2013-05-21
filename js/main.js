@@ -19,10 +19,11 @@ $("#picks").on("pageinit",function(){
 
 	$("#submitpick").on("click",function(key){
 		key = localStorage.id;
-		if(!key){
-			var id = Math.floor(Math.random()*100000001);
+		if(key){
+			var	id = key;
 		}else{
-			id = key;
+		
+			var id = Math.floor(Math.random()*100000001);
 		}
 
 		var pickX    ={};
@@ -94,6 +95,7 @@ $('#results').on("pageinit",function(e){
 			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.eighth[1] +"</li>").appendTo("#dResultList ol:last");
 			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.nineth[1] +"</li>").appendTo("#dResultList ol:last");
 			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.tenth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+key+"</li>").appendTo("#dResultList ol:last");
 			$("<input type='button' id='editPick' value='Edit' data-theme='a' data-mini='true' data-inline='false'>")
 				.appendTo("#dResultList")
 				.on("click",function(){
@@ -108,7 +110,9 @@ $('#results').on("pageinit",function(e){
 				$("#eighth").val(lsO.eighth[1]).selectmenu("refresh", true);
 				$("#nineth").val(lsO.nineth[1]).selectmenu("refresh", true);
 				$("#tenth").val(lsO.tenth[1]).selectmenu("refresh", true);
-					console.log(lsO.first[1]);
+				$("#submitpick").val("#editPick");
+				editPick.key = this.key;
+					console.log(this.key);
 
 				});		
 			$("<input type='button' id='deletePick' value='Delete' data-theme='a' data-mini='true' data-inline='false'>")
