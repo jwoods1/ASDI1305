@@ -72,35 +72,68 @@ $('#results').on("pageinit",function(e){
 	});
 
 	// Display button
-	$("#displayData").on("click",function(){
+	$("#results").on("pageshow",function(e){
 		
 		if(localStorage.length === 0){
+			
 			alert("No Picks to display.");
 		}
 		for(var i=0, j=localStorage.length; i<j; i++){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var lsO = $.parseJSON(value);
+			$("<ol data-role='listview' data-inset='true' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'></ol>").appendTo($("#dResultList"));
+			$("<li data-role='list-divider'>Race Picks</li>").appendTo($("ol:last"));
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.first[1] +"</li>").appendTo("ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.second[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.third[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.fourth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.fifth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.sixth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.seventh[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.eighth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.nineth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.tenth[1] +"</li>").appendTo("#dResultList ol:last");
+			$("<input type='button' id='editPick' value='Edit' data-theme='a' data-mini='true' data-inline='false'>")
+				.appendTo("#dResultList")
+				.on("click",function(){
+				$.mobile.changePage($("#picks"));
+				$("#first").val(lsO.first[1]).selectmenu("refresh", true);
+				$("#second").val(lsO.second[1]).selectmenu("refresh", true);
+				$("#third").val(lsO.third[1]).selectmenu("refresh", true);
+				$("#fourth").val(lsO.fourth[1]).selectmenu("refresh", true);
+				$("#fifth").val(lsO.fifth[1]).selectmenu("refresh", true);
+				$("#sixth").val(lsO.sixth[1]).selectmenu("refresh", true);
+				$("#seventh").val(lsO.seventh[1]).selectmenu("refresh", true);
+				$("#eighth").val(lsO.eighth[1]).selectmenu("refresh", true);
+				$("#nineth").val(lsO.nineth[1]).selectmenu("refresh", true);
+				$("#tenth").val(lsO.tenth[1]).selectmenu("refresh", true);
+					console.log(lsO.first[1]);
 
-			$("<ol>Race Results</ol>").appendTo($("#dResult"));
-			$("<li data-inline='true'>"+lsO.first[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.second[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.third[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.fourth[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.fifth[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.sixth[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.seventh[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.eighth[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.nineth[1] +"</li>").appendTo("#dResult ol:last");
-			$("<li data-inline='true'>"+lsO.tenth[1] +"</li>").appendTo("#dResult ol:last");
-			
+				});		
+			$("<input type='button' id='deletePick' value='Delete' data-theme='a' data-mini='true' data-inline='false'>")
+				.appendTo("#dResultList").on("click",function(){
+					localStorage.removeItem(key);
+					$.mobile.changePage($("#main-page"));
+					
+					});	
+				
 		}
-				console.log(lsO);
+			
+
 	});
+	
+	
+});
+$("#picks").on("pagebeforeshow",function(){
+	$("#first").selectmenu("refresh");
+
 });
 		
-	
-
+// Reinput in to selectors	
+/*var myselect = $( "#selectfoo" );
+myselect[0].selectedIndex = 3;
+myselect.selectmenu( "refresh" );*/
 
 
 //Use listview(refresh) to refresh list in results page

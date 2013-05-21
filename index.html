@@ -61,7 +61,7 @@
             <!---Form-->
             <div data-role="fieldcontain">
                     <label for="first">1st:</label>
-                    <select name="first" id="first" class="required" data-native-menu="false" data-theme="b">
+                    <select name="first" id="first" class="required" data-theme="b">
                         <option data-placeholder="true">1ST place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -75,7 +75,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="second">2nd:</label>
-                    <select name="second" id="second" class="required" data-native-menu="false" data-theme="b">
+                    <select name="second" id="second" class="required"  data-theme="b">
                         <option data-placeholder="true">2nd place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -89,7 +89,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="third">3rd:</label>
-                    <select name="third" id="third" class="required" data-native-menu="false" data-theme="b">
+                    <select name="third" id="third" class="required"  data-theme="b">
                         <option data-placeholder="true">3rd place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -103,7 +103,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="fourth">4th:</label>
-                    <select name="fourth" id="fourth" class="required" data-native-menu="false" data-theme="b">
+                    <select name="fourth" id="fourth" class="required"  data-theme="b">
                         <option data-placeholder="true">4th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -117,7 +117,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="fifth">5th:</label>
-                    <select name="fifth" id="fifth" class="required" data-native-menu="false" data-theme="b">
+                    <select name="fifth" id="fifth" class="required"  data-theme="b">
                         <option data-placeholder="true">5th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -131,7 +131,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="sixth">6th:</label>
-                    <select name="sixth" id="sixth" class="required" data-native-menu="false" data-theme="b">
+                    <select name="sixth" id="sixth" class="required"  data-theme="b">
                         <option data-placeholder="true">6th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -145,7 +145,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="seventh">7th:</label>
-                    <select name="seventh" id="seventh" class="required" data-native-menu="false" data-theme="b">
+                    <select name="seventh" id="seventh" class="required"  data-theme="b">
                         <option data-placeholder="true">7th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -159,7 +159,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="eighth">8th:</label>
-                    <select name="eighth" id="eighth" class="required" data-native-menu="false" data-theme="b">
+                    <select name="eighth" id="eighth" class="required"  data-theme="b">
                         <option data-placeholder="true">8th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -173,7 +173,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="nineth">9th:</label>
-                    <select name="nineth" id="nineth" class="required" data-native-menu="false" data-theme="b">
+                    <select name="nineth" id="nineth" class="required"  data-theme="b">
                         <option data-placeholder="true">9th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -187,7 +187,7 @@
                         <option value="weimer">Weimer</option>
                     </select>
                     <label for="tenth">10th:</label>
-                    <select name="tenth" id="tenth" class="required" data-native-menu="false" data-theme="b">
+                    <select name="tenth" id="tenth" class="required" data-theme="b">
                         <option data-placeholder="true">10th place</option>
                         <option value="villopoto">Villopoto</option>
                         <option value="reed">Reed</option>
@@ -219,11 +219,14 @@
             </div>
         </header>
         <section data-role="content" data-theme="a" id="dispalyContent">
-            <div data-role="listview" id="dResult">
+            <fieldset data-role="fieldcontain"  id="dResultList" data-theme="b">
 
-            </div>
 
-        <input type="button" id="displayData" value="Display Picks" data-theme="a" data-mini="true" data-inline='true'>
+                
+
+            </fieldset>
+
+        
         <input type="button" id="clearLocal" value="Clear Picks" data-icon="delete" data-iconpos="right" data-theme="a" data-mini="true" data-inline="true">
     </section>
         <footer data-theme="a">
