@@ -20,7 +20,7 @@ $("#picks").on("pageinit",function(){
 	$("#submitpick").on("click",function(key){
 		key = localStorage.id;
 		if(key){
-			var	id = key;
+			var	id = localStorage.key(key);
 		}else{
 		
 			var id = Math.floor(Math.random()*100000001);
@@ -68,12 +68,15 @@ $('#results').on("pageinit",function(e){
 		}else{
 			localStorage.clear();
 			alert("All Picks are Deleted");
+			location.reload();
 			$.mobile.changePage($("#main-page"));
 			}	
 	});
 
 	// Display button
 	$("#results").on("pageshow",function(e){
+			
+	
 		
 		if(localStorage.length === 0){
 			
@@ -81,7 +84,7 @@ $('#results').on("pageinit",function(e){
 		}
 		for(var i=0, j=localStorage.length; i<j; i++){
 			var key = localStorage.key(i);
-			var value = localStorage.getItem(key);
+			var value = localStorage[key];
 			var lsO = $.parseJSON(value);
 			$("<ol data-role='listview' data-inset='true' class='ui-listview ui-listview-inset ui-corner-all ui-shadow'></ol>").appendTo($("#dResultList"));
 			$("<li data-role='list-divider'>Race Picks</li>").appendTo($("ol:last"));
@@ -110,15 +113,34 @@ $('#results').on("pageinit",function(e){
 				$("#eighth").val(lsO.eighth[1]).selectmenu("refresh", true);
 				$("#nineth").val(lsO.nineth[1]).selectmenu("refresh", true);
 				$("#tenth").val(lsO.tenth[1]).selectmenu("refresh", true);
-				$("#submitpick").val("#editPick");
-				editPick.key = this.key;
-					console.log(this.key);
+				$("<div class='ui-submit ui-btn ui-shadow ui-btn-corner-all ui-btn-icon-right ui-btn-up-a' data-corners='true' data-shadow='true' data-iconshadow='true' data-wrapperels='span' data-icon='grid' data-iconpos='right' data-theme='a' data-disabled='false' aria-disabled='false'><span class='ui-btn-inner'><span class='ui-btn-text'>Edit Picks</span><span class='ui-icon ui-icon-grid ui-icon-shadow'>&nbsp;</span></span><input id='edit' class='ui-btn-hidden' type='submit' data-theme='a' data-iconpos='right' value='Edit Picks' data-disabled='false'>").appendTo("#form");
+				$("#edit").on("click",function(key){
+					id = localStorage[key];
+					console.log(id);
+					var pickX    ={};
+						
+						pickX.first = ["1st:", $("#first").val()];
+						pickX.second = ["2nd:", $("#second").val()];
+						pickX.third = ["3rd:", $("#third").val()];
+						pickX.fourth = ["4th:", $("#fourth").val()];
+						pickX.fifth = ["5th:", $("#fifth").val()];
+						pickX.sixth = ["6th:", $("#sixth").val()];
+						pickX.seventh = ["7th:", $("#seventh").val()];
+						pickX.eighth = ["8th:", $("#eighth").val()];
+						pickX.nineth = ["9th:", $("#nineth").val()];
+						pickX.tenth = ["10th:", $("#tenth").val()];
+				
+					localStorage.setItem(id,JSON.stringify(pickX));
+					alert("Picks Saved");
+
+					$.mobile.changePage($("#main-page"));
+	})
 
 				});		
 			$("<input type='button' id='deletePick' value='Delete' data-theme='a' data-mini='true' data-inline='false'>")
 				.appendTo("#dResultList").on("click",function(){
-					localStorage.removeItem(key);
-					$.mobile.changePage($("#main-page"));
+				localStorage.removeItem(key);
+					location.reload();
 					
 					});	
 				
