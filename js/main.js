@@ -3,12 +3,13 @@
 // main.js
 
 
+//Jason Woods
+// ASDI 1305
+// main.js
+
+
 $("#main-page").on("pageshow",function(){
 	$("#img img")
-		.fadeIn(3000)
-		.fadeOut(3000)
-		.fadeIn(3000)
-		.fadeOut(3000)
 		.fadeIn(3000);
 
 });
@@ -23,7 +24,7 @@ $("#picks").on("pageinit",function(){
 			var	id = localStorage.key(key);
 		}else{
 		
-			var id = Math.floor(Math.random()*100000001);
+		var id = Math.floor(Math.random()*100000001);
 		}
 
 		var pickX    ={};
@@ -43,8 +44,7 @@ $("#picks").on("pageinit",function(){
 			alert("Picks Saved");
 
 			$.mobile.changePage($("#main-page"));
-		
-	});
+});
 
 });
 /*var defaultData = $(function(){
@@ -79,8 +79,7 @@ $('#results').on("pageinit",function(e){
 	
 		
 		if(localStorage.length === 0){
-			
-			alert("No Picks to display.");
+		alert("No Picks to display.");
 		}
 		for(var i=0, j=localStorage.length; i<j; i++){
 			var key = localStorage.key(i);
@@ -98,8 +97,8 @@ $('#results').on("pageinit",function(e){
 			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.eighth[1] +"</li>").appendTo("#dResultList ol:last");
 			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.nineth[1] +"</li>").appendTo("#dResultList ol:last");
 			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+lsO.tenth[1] +"</li>").appendTo("#dResultList ol:last");
-			$("<li class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>"+key+"</li>").appendTo("#dResultList ol:last");
-			$("<input type='button' id='editPick' value='Edit' data-theme='a' data-mini='true' data-inline='false'>")
+			
+		$("<input type='button' id='editPick' value='Edit' data-theme='a' data-mini='true' data-inline='false'>")
 				.appendTo("#dResultList")
 				.on("click",function(){
 				$.mobile.changePage($("#picks"));
@@ -145,25 +144,94 @@ $('#results').on("pageinit",function(e){
 					});	
 				
 		}
-			
 
 	});
+/*$.ajax({
+	"url":"_view/races" ,
+	"dataType": "json",
+	"success": function (data){
+		$.each(data.rows, function(index, races){
+			var race = races.value.Race;
+			var first = races.value.first;
+			var second = races.value.second;
+			var third = races.value.third;
+			var four = races.value.fourth;
+			var fifth = races.value.fifth;
+			var sixth = races.value.sixth;
+			var seventh = races.value.seventh;
+			var eighth = races.value.eighth;
+			var ninth = races.value.ninth;
+			var tenth = races.value.tenth;
+			console.log(four);
+			$("#rResult").append(
+					$("<h3>").text("Race Finishes"));
+			$("#rResult").append(
+				$("<ul id='raceResults'>").append(
+					$("<li>").text(race),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(first),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(second),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(third),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(four),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(fifth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(sixth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(seventh),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(eighth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(ninth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(tenth)
+						)
+					
+					);
+			
+				
+		});
+		$("#rResults").listview("refresh");
+	}
+})*/
+$(document).on('pageinit', '#results', function(){
+	$.couch.db("development").view("mototracker/races", {
+		success: function(data){
+		$.each(data.rows, function(index, races){
+			var race = races.value.Race;
+			var first = races.value.first;
+			var second = races.value.second;
+			var third = races.value.third;
+			var four = races.value.fourth;
+			var fifth = races.value.fifth;
+			var sixth = races.value.sixth;
+			var seventh = races.value.seventh;
+			var eighth = races.value.eighth;
+			var ninth = races.value.ninth;
+			var tenth = races.value.tenth;
 	
+			$("#rResult").append(
+					$("<h3>").text("Race Finishes"));
+			$("#rResult").append(
+				$("<ul id='raceResults'>").append(
+					$("<li>").text(race),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(first),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(second),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(third),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(four),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(fifth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(sixth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(seventh),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(eighth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(ninth),
+					$("<li  class='ui-li ui-li-static ui-btn-up-a ui-first-child ui-last-child'>").text(tenth)
+						)
+					
+					);
+			
+		});
+		$("#rResults").listview("refresh");
+	}
+		});
+});
 	
 });
 $("#picks").on("pagebeforeshow",function(){
 	$("#first").selectmenu("refresh");
 
 });
-		
-// Reinput in to selectors	
-/*var myselect = $( "#selectfoo" );
-myselect[0].selectedIndex = 3;
-myselect.selectmenu( "refresh" );*/
-
-
-//Use listview(refresh) to refresh list in results page
-		
-
 
 
