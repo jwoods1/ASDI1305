@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/development"
+    },
+     "cloudant": {
+      "db": "https://jwoods1:tanner2006@jwoods1.cloudant.com/mototracker"
+    }
+  }
+}
